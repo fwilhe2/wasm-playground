@@ -28,4 +28,4 @@ jobs:
         npm run build
         npm run wasmtime
     - run: ls -la
-    - run: wasm-objdump *.wasm
+    - run: wasm-objdump --full-contents *.wasm
