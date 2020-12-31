@@ -20,5 +20,6 @@ jobs:
         wasmtime hello.wasm
     - name: as
       run: |
+        npm ci
         npm run build
         npm run wasmtime
