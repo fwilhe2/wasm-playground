@@ -13,6 +13,10 @@ jobs:
       uses: mwilliamson/setup-wasmtime-action@v1
       with:
         wasmtime-version: "0.21.0"
+    - name: Use wabt 1.0.20
+      uses: mwilliamson/setup-wabt-action@v1
+      with:
+        wabt-version: "1.0.20"
     - name: rust
       run: |
         rustup target add wasm32-wasi
@@ -23,3 +27,5 @@ jobs:
         npm ci
         npm run build
         npm run wasmtime
+    - run: ls -la
+    - run: wasm-objdump *.wasm
