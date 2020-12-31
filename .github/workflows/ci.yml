@@ -13,9 +13,12 @@ jobs:
       uses: mwilliamson/setup-wasmtime-action@v1
       with:
         wasmtime-version: "0.21.0"
-    - name: test
+    - name: rust
       run: |
-        wasmtime --version
         rustup target add wasm32-wasi
         rustc hello.rs --target wasm32-wasi
         wasmtime hello.wasm
+    - name: as
+      run: |
+        npm run build
+        npm run wasmtime
